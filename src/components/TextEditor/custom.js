@@ -21,8 +21,8 @@ class Counter {
         this.quill = quill;
         this.options = options;
         this.container = document.querySelector(options.container);
-        // quill.on("text-change", this.update.bind(this));
-        // this.update(); // Account for initial contents
+        quill.on("text-change", this.update.bind(this));
+        this.update(); // Account for initial contents
     }
 
     calculate() {
@@ -37,17 +37,16 @@ class Counter {
     }
 
     update() {
-        var length = this.calculate();
-        var label = this.options.unit;
+        const length = this.calculate();
+        let label = this.options.unit;
         if (length !== 1) {
             label += "s";
         }
-        console.log("length: ", length);
         this.container.innerText = length + " " + label;
     }
 }
 
-// Quill.register("modules/counter", Counter, true);
+Quill.register("modules/counter", Counter, true);
 Quill.register("modules/custom", Custom, true);
 
 const modules = {
@@ -63,10 +62,10 @@ const modules = {
         ["link", "image"],
         ["clean"],
     ],
-    // counter: {
-    //     container: "#counter",
-    //     unit: "word",
-    // },
+    counter: {
+        container: "#counter",
+        unit: "word",
+    },
     custom: {
         //여긴 옵션 (constructor의 두번째 인자)
     },

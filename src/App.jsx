@@ -26,15 +26,15 @@ function App() {
         }
     }, [reactQuill]);
 
-    useEffect(() => {
-        const textChangeHandler = (d, old, sorce) => {
-            console.log("text-change: ", d, old, sorce);
-        };
-        quill.current?.on("text-change", textChangeHandler);
-        return () => {
-            quill.current?.off("text-change", textChangeHandler);
-        };
-    }, [quill]);
+    // useEffect(() => {
+    //     const textChangeHandler = (d, old, sorce) => {
+    //         console.log("text-change: ", d, old, sorce);
+    //     };
+    //     quill.current?.on("text-change", textChangeHandler);
+    //     return () => {
+    //         quill.current?.off("text-change", textChangeHandler);
+    //     };
+    // }, [quill]);
 
     const getLength = () => console.log(quill.current?.getLength());
     const getText = () => console.log(quill.current?.getText());
