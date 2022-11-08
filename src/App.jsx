@@ -158,7 +158,7 @@ function App() {
         };
     }, [quill]);
 
-    const onTest = () => console.log(quill.current?.test());
+    const onTest = () => console.log(quill.current?.test()); //module/custom의 함수
 
     return (
         <>
